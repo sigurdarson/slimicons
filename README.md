@@ -4,7 +4,7 @@ Slim icons is a free &amp; open source icon library.
 
 ## Usage
 
-Currently, the simplest way to use the icons is to navigate to slimicons.com and copy the desired icon into your preferred design tool or directly to your HTML code.
+Currently, the simplest way to use the icons is to navigate to [slimicons.com](https://slimicons.com) and copy the desired icon into your preferred design tool or directly to your HTML code.
 
 ```html
 <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" >
@@ -16,6 +16,11 @@ Currently, the simplest way to use the icons is to navigate to slimicons.com and
   />
 </svg>
 ```
+
+## Plans going forward
+- Expand the library
+- React components
+- NPM package
 
 ## License
 
