@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { transform } = require('@svgr/core');
 
 const iconsDir = path.join(__dirname, 'optimized/24');
 const srcDir = path.join(__dirname, 'src');
@@ -8,7 +9,7 @@ if (!fs.existsSync(srcDir)) {
   fs.mkdirSync(srcDir);
 }
 
-fs.readdir(iconsDir, (err, files) => {
+fs.readdir(iconsDir, async (err, files) => {
   if (err) {
     console.error('Error reading the icons directory:', err);
     return;
@@ -17,55 +18,32 @@ fs.readdir(iconsDir, (err, files) => {
   const svgFiles = files.filter((file) => path.extname(file) === '.svg');
 
   const indexFilePath = path.join(srcDir, 'index.js');
+  fs.writeFileSync(indexFilePath, '');
 
-  fs.writeFile(
-    indexFilePath,
-    "import React from 'react';\n",
-    { flag: 'w' },
-    (err) => {
-      if (err) {
-        console.error(`Error initializing ${indexFilePath}:`, err);
-        return;
-      }
-    }
-  );
-
-  svgFiles.forEach((file) => {
+  for (const file of svgFiles) {
     const filePath = path.join(iconsDir, file);
-    const iconName = toCamelCase(path.basename(file, '.svg'));
-    const outputFilePath = path.join(srcDir, `${iconName}.svg`);
+    const componentName = toCamelCase(path.basename(file, '.svg'));
+    const outputFilePath = path.join(srcDir, `${componentName}.js`);
 
-    fs.readFile(filePath, 'utf-8', (err, data) => {
-      if (err) {
-        console.error(`Error reading file ${file}:`, err);
-        return;
-      }
+    const svgContent = await fs.promises.readFile(filePath, 'utf-8');
+    const componentCode = await transform(
+      svgContent,
+      { icon: true },
+      { componentName }
+    );
+    const wrapperCode = `import React from 'react';
+import ${componentName}SVG from './${componentName}SVG';
 
-      fs.writeFile(outputFilePath, data, (err) => {
-        if (err) {
-          console.error(`Error writing file ${outputFilePath}:`, err);
-          return;
-        }
-        console.log(`Generated ${outputFilePath}`);
-
-        const exportStatement = `import { ReactComponent as ${iconName}SVG } from './${iconName}.svg';\n`;
-        const wrapperComponent = `export const ${iconName} = ({ size = 24, color = '#000000', ...props }) => (
-  <${iconName}SVG width={size} height={size} fill={color} {...props} />
+export const ${componentName} = ({ size = 24, color = '#000000', ...props }) => (
+  <${componentName}SVG width={size} height={size} fill={color} {...props} />
 );\n`;
 
-        fs.appendFile(
-          indexFilePath,
-          exportStatement + wrapperComponent,
-          (err) => {
-            if (err) {
-              console.error(`Error appending to ${indexFilePath}:`, err);
-              return;
-            }
-          }
-        );
-      });
-    });
-  });
+    await fs.promises.writeFile(outputFilePath, componentCode + wrapperCode);
+    console.log(`Generated ${outputFilePath}`);
+
+    const exportStatement = `export { ${componentName} } from './${componentName}';\n`;
+    await fs.promises.appendFile(indexFilePath, exportStatement);
+  }
 });
 
 function toCamelCase(str) {
