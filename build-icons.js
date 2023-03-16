@@ -6,12 +6,10 @@ const babel = require('@babel/core');
 const iconsDir = path.join(__dirname, 'icons');
 const srcDir = path.join(__dirname, 'src');
 
-// Create the src directory if it doesn't exist
 if (!fs.existsSync(srcDir)) {
   fs.mkdirSync(srcDir, { recursive: true });
 }
 
-// Initialize the index content
 let indexContent = '';
 
 fs.readdir(iconsDir, (err, files) => {
@@ -27,53 +25,47 @@ fs.readdir(iconsDir, (err, files) => {
       .replace(/(-\w)/g, (match) => match[1].toUpperCase())
       .replace(/(^\w)/, (match) => match.toUpperCase());
 
-    // Update the index content
     indexContent += `export { default as ${componentName} } from './${componentName}';\n`;
 
-    // Read the SVG file content
     const svgCode = fs.readFileSync(filePath, 'utf-8');
 
-    // Convert the SVG content to a React component using SVGR
     const jsCode = await transform(
       svgCode,
       {
         componentName,
         config: {
-          replaceAttrValues: {
-            width: '{size}',
-            height: '{size}',
-            fill: '{color}',
-          },
           template: (api, opts, state) => {
             const { template } = api;
-            const { imports, componentName, props, jsx, exports } = state;
+            const { imports, componentName, jsx, exports } = state;
             const typeScriptTpl = template.smart({ plugins: ['typescript'] });
 
             return typeScriptTpl.ast`
-                  ${imports}
-                  function ${componentName}({ size = 24, color = '#000000', ...otherProps }) {
-                    return React.createElement(${jsx.type}, { ...otherProps, size, color, children: ${jsx.children} });
-                  }
-                  ${exports}
-                `;
+              ${imports}
+              function ${componentName}(props) {
+                return ${jsx};
+              }
+              ${exports}
+            `;
           },
         },
       },
       { fileName: componentName }
     );
 
-    // Transform the code using Babel to support older JavaScript environments
     const { code } = await babel.transformAsync(jsCode, {
       configFile: false,
       presets: ['@babel/preset-env', '@babel/preset-react'],
       plugins: ['@babel/plugin-transform-modules-commonjs'],
     });
 
-    // Write the React component to the src directory
-    fs.writeFileSync(path.join(srcDir, `${componentName}.js`), code);
+    const modifiedCode = code
+      .replace('fill: "#000"', 'fill: props.color || "#000"')
+      .replace('height: 24', 'height: props.size || 24')
+      .replace('width: 24', 'width: props.size || 24');
+
+    fs.writeFileSync(path.join(srcDir, `${componentName}.js`), modifiedCode);
   });
 
-  // Write the index.js file
   fs.writeFile(path.join(srcDir, 'index.js'), indexContent, (err) => {
     if (err) throw err;
     console.log('Index file generated.');

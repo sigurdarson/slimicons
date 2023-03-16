@@ -12,13 +12,13 @@ function _extends() { _extends = Object.assign ? Object.assign.bind() : function
 var SvgComponent = function SvgComponent(props) {
   return /*#__PURE__*/React.createElement("svg", _extends({
     fill: "none",
-    height: 24,
+    height: props.size || 24,
     viewBox: "0 0 24 24",
-    width: 24,
+    width: props.size || 24,
     xmlns: "http://www.w3.org/2000/svg"
   }, props), /*#__PURE__*/React.createElement("g", {
     clipRule: "evenodd",
-    fill: "#000",
+    fill: props.color || "#000",
     fillRule: "evenodd"
   }, /*#__PURE__*/React.createElement("path", {
     d: "m17.7803 5.46967c-.2929-.29289-.7677-.29289-1.0606 0l-2.6286 2.62858c-.5748.57477-1.0384 1.03835-1.3831 1.44443-.355.41812-.6278.82432-.7818 1.29852-.2447.7531-.2447 1.5645 0 2.3176.154.4742.4268.8804.7818 1.2985.3447.4061.8083.8697 1.3831 1.4444l2.6286 2.6286c.2929.2929.7677.2929 1.0606 0s.2929-.7677 0-1.0606l-2.6059-2.6059c-.6027-.6028-1.0225-1.0234-1.3229-1.3773-.2947-.3471-.4302-.5804-.4987-.7912-.1469-.4519-.1469-.9387 0-1.3906.0685-.2108.204-.4441.4987-.7912.3004-.3539.7202-.77451 1.3229-1.37728l2.6059-2.60589c.2929-.29289.2929-.76777 0-1.06066z"

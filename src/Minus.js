@@ -12,14 +12,14 @@ function _extends() { _extends = Object.assign ? Object.assign.bind() : function
 var SvgComponent = function SvgComponent(props) {
   return /*#__PURE__*/React.createElement("svg", _extends({
     fill: "none",
-    height: 24,
+    height: props.size || 24,
     viewBox: "0 0 24 24",
-    width: 24,
+    width: props.size || 24,
     xmlns: "http://www.w3.org/2000/svg"
   }, props), /*#__PURE__*/React.createElement("path", {
     clipRule: "evenodd",
     d: "m4.25 12c0-.4142.33579-.75.75-.75h14c.4142 0 .75.3358.75.75s-.3358.75-.75.75h-14c-.41421 0-.75-.3358-.75-.75z",
-    fill: "#000",
+    fill: props.color || "#000",
     fillRule: "evenodd"
   }));
 };
