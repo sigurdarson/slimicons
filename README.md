@@ -78,7 +78,7 @@ export default App;
 
 ## Alternatively
 
-another way to use the icons is to navigate to [slimicons.com](https://slimicons.com) and copy the desired icon into your preferred design tool or directly to your HTML code.
+Another way to use the icons is to navigate to [slimicons.com](https://slimicons.com) and copy the desired icon into your preferred design tool or directly to your HTML code.
 
 ```html
 <svg
@@ -99,7 +99,7 @@ another way to use the icons is to navigate to [slimicons.com](https://slimicons
 
 ## Plans going forward
 
-- [] Expand the library
+- [ ] Expand the library
 - [x] React components
 - [x] NPM package
 
