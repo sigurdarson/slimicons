@@ -1,15 +1,16 @@
 {
   "name": "slimicons",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Slim icons is a free & open source icon library by [Sig](https://twitter.com/GSigurdarson).",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/sigurdarson/slimicons.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node generate-icons.js"
+    "run": "node generate-icons.js",
+    "build": "babel src --out-dir dist --extensions '.js,.jsx' --source-maps"
   },
   "keywords": [
     "icons",
@@ -23,6 +24,10 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.3",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
     "@svgr/core": "^6.5.1"
   }
 }
