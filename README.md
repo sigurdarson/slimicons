@@ -18,7 +18,7 @@ Here's an example of how to import and use the ArrowDown icon:
 
 ```javascript
 import React from 'react';
-import { ArrowDown } from 'your-icon-package';
+import { ArrowDown } from 'slimicons';
 
 const App = () => {
   return (
@@ -56,7 +56,7 @@ This will render the ArrowDown icon with a custom-class CSS class and a data-tes
 
 ```javascript
 import React from 'react';
-import { ArrowDown, AnotherIcon } from 'your-icon-package';
+import { ArrowDown, AnotherIcon } from 'slimicons';
 
 const App = () => {
   return (

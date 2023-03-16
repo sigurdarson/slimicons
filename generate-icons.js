@@ -18,17 +18,22 @@ fs.readdir(iconsDir, (err, files) => {
 
   const indexFilePath = path.join(srcDir, 'index.js');
 
-  fs.writeFile(indexFilePath, '', { flag: 'w' }, (err) => {
-    if (err) {
-      console.error(`Error initializing ${indexFilePath}:`, err);
-      return;
+  fs.writeFile(
+    indexFilePath,
+    "import React from 'react';\n",
+    { flag: 'w' },
+    (err) => {
+      if (err) {
+        console.error(`Error initializing ${indexFilePath}:`, err);
+        return;
+      }
     }
-  });
+  );
 
   svgFiles.forEach((file) => {
     const filePath = path.join(iconsDir, file);
-    const componentName = toCamelCase(path.basename(file, '.svg'));
-    const outputFilePath = path.join(srcDir, `${componentName}.js`);
+    const iconName = toCamelCase(path.basename(file, '.svg'));
+    const outputFilePath = path.join(srcDir, `${iconName}.svg`);
 
     fs.readFile(filePath, 'utf-8', (err, data) => {
       if (err) {
@@ -36,45 +41,28 @@ fs.readdir(iconsDir, (err, files) => {
         return;
       }
 
-      const svgContent = data.replace(/<svg[^>]*>/, '').replace('</svg>', '');
-
-      const componentCode = `import React from 'react';
-
-const ${componentName} = ({
-  size = 24,
-  color = '#000000',
-  ...props
-}) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill={color}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
-    ${svgContent}
-  </svg>
-);
-
-export default ${componentName};
-`;
-
-      fs.writeFile(outputFilePath, componentCode, (err) => {
+      fs.writeFile(outputFilePath, data, (err) => {
         if (err) {
           console.error(`Error writing file ${outputFilePath}:`, err);
           return;
         }
         console.log(`Generated ${outputFilePath}`);
 
-        const exportStatement = `export { default as ${componentName} } from './${componentName}';\n`;
+        const exportStatement = `import { ReactComponent as ${iconName}SVG } from './${iconName}.svg';\n`;
+        const wrapperComponent = `export const ${iconName} = ({ size = 24, color = '#000000', ...props }) => (
+  <${iconName}SVG width={size} height={size} fill={color} {...props} />
+);\n`;
 
-        fs.appendFile(indexFilePath, exportStatement, (err) => {
-          if (err) {
-            console.error(`Error appending to ${indexFilePath}:`, err);
-            return;
+        fs.appendFile(
+          indexFilePath,
+          exportStatement + wrapperComponent,
+          (err) => {
+            if (err) {
+              console.error(`Error appending to ${indexFilePath}:`, err);
+              return;
+            }
           }
-        });
+        );
       });
     });
   });
