@@ -36,7 +36,29 @@ fs.readdir(iconsDir, (err, files) => {
     // Convert the SVG content to a React component using SVGR
     const jsCode = await transform(
       svgCode,
-      { componentName },
+      {
+        componentName,
+        config: {
+          replaceAttrValues: {
+            width: '{size}',
+            height: '{size}',
+            fill: '{color}',
+          },
+          template: (api, opts, state) => {
+            const { template } = api;
+            const { imports, componentName, props, jsx, exports } = state;
+            const typeScriptTpl = template.smart({ plugins: ['typescript'] });
+
+            return typeScriptTpl.ast`
+                  ${imports}
+                  function ${componentName}({ size = 24, color = '#000000', ...otherProps }) {
+                    return React.createElement(${jsx.type}, { ...otherProps, size, color, children: ${jsx.children} });
+                  }
+                  ${exports}
+                `;
+          },
+        },
+      },
       { fileName: componentName }
     );
 
