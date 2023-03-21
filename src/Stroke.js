@@ -11,16 +11,29 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 var SvgComponent = function SvgComponent(props) {
   return /*#__PURE__*/React.createElement("svg", _extends({
-    fill: "none",
+    width: props.size || 24,
     height: props.size || 24,
     viewBox: "0 0 24 24",
-    width: props.size || 24,
+    fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
   }, props), /*#__PURE__*/React.createElement("path", {
-    clipRule: "evenodd",
-    d: "m4.25 5c0-.41421.33579-.75.75-.75h14c.4142 0 .75.33579.75.75s-.3358.75-.75.75h-14c-.41421 0-.75-.33579-.75-.75zm0 4c0-.9665.7835-1.75 1.75-1.75h12c.9665 0 1.75.7835 1.75 1.75v1c0 .9665-.7835 1.75-1.75 1.75h-12c-.9665 0-1.75-.7835-1.75-1.75zm1.75-.25c-.13807 0-.25.11193-.25.25v1c0 .1381.11193.25.25.25h12c.1381 0 .25-.1119.25-.25v-1c0-.13807-.1119-.25-.25-.25zm0 4.5c-.9665 0-1.75.7835-1.75 1.75v3c0 .9665.7835 1.75 1.75 1.75h12c.9665 0 1.75-.7835 1.75-1.75v-3c0-.9665-.7835-1.75-1.75-1.75zm-.25 1.75c0-.1381.11193-.25.25-.25h12c.1381 0 .25.1119.25.25v3c0 .1381-.1119.25-.25.25h-12c-.13807 0-.25-.1119-.25-.25z",
-    fill: props.color || "#000",
-    fillRule: "evenodd"
+    d: "M18 8H6C5.44772 8 5 8.44772 5 9V10C5 10.5523 5.44772 11 6 11H18C18.5523 11 19 10.5523 19 10V9C19 8.44772 18.5523 8 18 8Z",
+    stroke: props.color || "#000",
+    strokeWidth: 1.5,
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M5 5H19",
+    stroke: props.color || "#000",
+    strokeWidth: 1.5,
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M18 14H6C5.44772 14 5 14.4477 5 15V18C5 18.5523 5.44772 19 6 19H18C18.5523 19 19 18.5523 19 18V15C19 14.4477 18.5523 14 18 14Z",
+    stroke: props.color || "#000",
+    strokeWidth: 1.5,
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
   }));
 };
 var _default = SvgComponent;

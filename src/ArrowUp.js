@@ -11,16 +11,23 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 var SvgComponent = function SvgComponent(props) {
   return /*#__PURE__*/React.createElement("svg", _extends({
-    fill: "none",
+    width: props.size || 24,
     height: props.size || 24,
     viewBox: "0 0 24 24",
-    width: props.size || 24,
+    fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
   }, props), /*#__PURE__*/React.createElement("path", {
-    clipRule: "evenodd",
-    d: "m13.1588 3.67618c-.7531-.24471-1.5645-.24471-2.3176 0-.4742.15407-.8804.42685-1.29852.7818-.40608.34474-.86966.80834-1.44442 1.38311l-.0227.0227-2.60589 2.60588c-.29289.2929-.29289.76777 0 1.06066.29289.2929.76777.2929 1.06066 0l2.60589-2.60588c.60277-.60278 1.02338-1.02255 1.37728-1.32296.3174-.26948.5396-.40584.7365-.47959v15.8781c0 .4142.3358.75.75.75s.75-.3358.75-.75v-15.8781c.1969.07375.4191.21011.7365.47959.3539.30041.7745.72018 1.3773 1.32296l2.6059 2.60588c.2929.2929.7677.2929 1.0606 0 .2929-.29289.2929-.76776 0-1.06066l-2.6059-2.60588-.0226-.0227h-.0001c-.5747-.57477-1.0383-1.03837-1.4444-1.38311-.4181-.35495-.8243-.62773-1.2985-.7818z",
-    fill: props.color || "#000",
-    fillRule: "evenodd"
+    d: "M12 4.5V21",
+    stroke: props.color || "#000",
+    strokeWidth: 1.5,
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M18 9L15.3941 6.39411C14.2061 5.20606 13.612 4.61204 12.9271 4.38947C12.3245 4.1937 11.6755 4.1937 11.0729 4.38947C10.388 4.61204 9.79394 5.20606 8.60589 6.39411L6 9",
+    stroke: props.color || "#000",
+    strokeWidth: 1.5,
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
   }));
 };
 var _default = SvgComponent;
