@@ -1,6 +1,6 @@
 {
   "name": "slimicons",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Slim icons is a free & open source icon library by [Sig](https://twitter.com/GSigurdarson).",
   "main": "dist/index.js",
   "module": "src/index.js",

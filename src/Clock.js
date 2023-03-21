@@ -11,16 +11,22 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 var SvgComponent = function SvgComponent(props) {
   return /*#__PURE__*/React.createElement("svg", _extends({
-    fill: "none",
+    width: props.size || 24,
     height: props.size || 24,
     viewBox: "0 0 24 24",
-    width: props.size || 24,
+    fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
   }, props), /*#__PURE__*/React.createElement("path", {
-    clipRule: "evenodd",
-    d: "m3.75 12c0-4.55635 3.69365-8.25 8.25-8.25 4.5563 0 8.25 3.69365 8.25 8.25 0 4.5563-3.6937 8.25-8.25 8.25-4.55635 0-8.25-3.6937-8.25-8.25zm8.25-9.75c-5.38478 0-9.75 4.36522-9.75 9.75 0 5.3848 4.36522 9.75 9.75 9.75 5.3848 0 9.75-4.3652 9.75-9.75 0-5.38478-4.3652-9.75-9.75-9.75zm.75 3.75c0-.41421-.3358-.75-.75-.75s-.75.33579-.75.75v4.0118.0854c-.0002.6516-.0003 1.1026.1036 1.5356.0919.3826.2434.7484.449 1.0839.2327.3797.5517.6985 1.0125 1.1591l.0605.0604 2.5941 2.5941c.2929.2929.7677.2929 1.0606 0s.2929-.7677 0-1.0606l-2.5941-2.5941c-.5441-.5441-.7263-.7332-.8546-.9426-.1234-.2013-.2143-.4208-.2694-.6504-.0574-.2389-.0622-.5014-.0622-1.2708z",
-    fill: props.color || "#000",
-    fillRule: "evenodd"
+    d: "M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z",
+    stroke: props.color || "#000",
+    strokeWidth: 1.5,
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M12 6V10.0118C12 10.7455 12 11.1124 12.0829 11.4577C12.1564 11.7638 12.2776 12.0564 12.4421 12.3249C12.6276 12.6276 12.887 12.887 13.4059 13.4059L16 16",
+    stroke: props.color || "#000",
+    strokeWidth: 1.5,
+    strokeLinecap: "round"
   }));
 };
 var _default = SvgComponent;

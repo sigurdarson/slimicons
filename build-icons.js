@@ -19,6 +19,7 @@ fs.readdir(iconsDir, (err, files) => {
   }
 
   files.forEach(async (file) => {
+    if (file === '.DS_Store') return;
     const filePath = path.join(iconsDir, file);
     const componentName = path
       .basename(file, '.svg')
@@ -59,7 +60,7 @@ fs.readdir(iconsDir, (err, files) => {
     });
 
     const modifiedCode = code
-      .replace('fill: "#000"', 'fill: props.color || "#000"')
+      .replace(/stroke: "black"/g, 'stroke: props.color || "#000"')
       .replace('height: 24', 'height: props.size || 24')
       .replace('width: 24', 'width: props.size || 24');
 

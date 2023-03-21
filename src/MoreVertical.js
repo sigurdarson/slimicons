@@ -11,16 +11,29 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 var SvgComponent = function SvgComponent(props) {
   return /*#__PURE__*/React.createElement("svg", _extends({
-    fill: "none",
+    width: props.size || 24,
     height: props.size || 24,
     viewBox: "0 0 24 24",
-    width: props.size || 24,
+    fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
   }, props), /*#__PURE__*/React.createElement("path", {
-    clipRule: "evenodd",
-    d: "m12 4.25c-.9665 0-1.75.7835-1.75 1.75s.7835 1.75 1.75 1.75h.01c.9665 0 1.75-.7835 1.75-1.75s-.7835-1.75-1.75-1.75zm-1.75 7.75c0-.9665.7835-1.75 1.75-1.75h.01c.9665 0 1.75.7835 1.75 1.75s-.7835 1.75-1.75 1.75h-.01c-.9665 0-1.75-.7835-1.75-1.75zm0 6c0-.9665.7835-1.75 1.75-1.75h.01c.9665 0 1.75.7835 1.75 1.75s-.7835 1.75-1.75 1.75h-.01c-.9665 0-1.75-.7835-1.75-1.75z",
-    fill: props.color || "#000",
-    fillRule: "evenodd"
+    d: "M12 12H12.01",
+    stroke: props.color || "#000",
+    strokeWidth: 3.5,
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M12 18H12.01",
+    stroke: props.color || "#000",
+    strokeWidth: 3.5,
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M12 6H12.01",
+    stroke: props.color || "#000",
+    strokeWidth: 3.5,
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
   }));
 };
 var _default = SvgComponent;

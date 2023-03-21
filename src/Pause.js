@@ -11,16 +11,23 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 var SvgComponent = function SvgComponent(props) {
   return /*#__PURE__*/React.createElement("svg", _extends({
-    fill: "none",
+    width: props.size || 24,
     height: props.size || 24,
     viewBox: "0 0 24 24",
-    width: props.size || 24,
+    fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
   }, props), /*#__PURE__*/React.createElement("path", {
-    clipRule: "evenodd",
-    d: "m10.75 9c0-.41421-.3358-.75-.75-.75-.41421 0-.75.33579-.75.75v6c0 .4142.33579.75.75.75.4142 0 .75-.3358.75-.75zm4 0c0-.41421-.3358-.75-.75-.75s-.75.33579-.75.75v6c0 .4142.3358.75.75.75s.75-.3358.75-.75z",
-    fill: props.color || "#000",
-    fillRule: "evenodd"
+    d: "M10 9V15",
+    stroke: props.color || "#000",
+    strokeWidth: 1.5,
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M14 9V15",
+    stroke: props.color || "#000",
+    strokeWidth: 1.5,
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
   }));
 };
 var _default = SvgComponent;
