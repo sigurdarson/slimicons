@@ -17,13 +17,7 @@ var SvgComponent = function SvgComponent(props) {
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M16 21V12.8C16 11.1198 16 10.2798 15.673 9.63803C15.3854 9.07354 14.9265 8.6146 14.362 8.32698C13.7202 8 12.8802 8 11.2 8H3",
-    stroke: props.color || "#000",
-    strokeWidth: 1.5,
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M8 3V11.2C8 12.8802 8 13.7202 8.32698 14.362C8.6146 14.9265 9.07354 15.3854 9.63803 15.673C10.2798 16 11.1198 16 12.8 16H21",
+    d: "M16 21V12.8C16 11.1198 16 10.2798 15.673 9.63803C15.3854 9.07354 14.9265 8.6146 14.362 8.32698C13.7202 8 12.8802 8 11.2 8H3M8 3V11.2C8 12.8802 8 13.7202 8.32698 14.362C8.6146 14.9265 9.07354 15.3854 9.63803 15.673C10.2798 16 11.1198 16 12.8 16H21",
     stroke: props.color || "#000",
     strokeWidth: 1.5,
     strokeLinecap: "round",

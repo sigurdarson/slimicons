@@ -17,7 +17,7 @@ var SvgComponent = function SvgComponent(props) {
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9 6C9 4.34315 10.3431 3 12 3V3C13.6569 3 15 4.34315 15 6V12C15 13.6569 13.6569 15 12 15V15C10.3431 15 9 13.6569 9 12V6Z",
+    d: "M9 6C9 4.34315 10.3431 3 12 3C13.6569 3 15 4.34315 15 6V12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12V6Z",
     stroke: props.color || "#000",
     strokeWidth: 1.5
   }), /*#__PURE__*/React.createElement("path", {
