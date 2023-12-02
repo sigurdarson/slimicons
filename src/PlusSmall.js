@@ -17,13 +17,7 @@ var SvgComponent = function SvgComponent(props) {
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 9V15",
-    stroke: props.color || "#000",
-    strokeWidth: 1.5,
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M9 12H15",
+    d: "M12 9V15M9 12H15",
     stroke: props.color || "#000",
     strokeWidth: 1.5,
     strokeLinecap: "round",

@@ -23,7 +23,7 @@ var SvgComponent = function SvgComponent(props) {
     strokeLinecap: "round",
     strokeLinejoin: "round"
   }), /*#__PURE__*/React.createElement("path", {
-    d: "M9 18L6.39411 15.3941C5.20606 14.2061 4.61204 13.612 4.38947 12.9271C4.1937 12.3245 4.1937 11.6755 4.38947 11.0729C4.61204 10.388 5.20606 9.79394 6.39411 8.60589L9 6",
+    d: "M8.99997 18L6.39409 15.3941C5.20604 14.2061 4.61201 13.612 4.38945 12.9271C4.19367 12.3245 4.19367 11.6755 4.38945 11.0729C4.61201 10.388 5.20604 9.79394 6.39409 8.60589L8.99997 6",
     stroke: props.color || "#000",
     strokeWidth: 1.5,
     strokeLinecap: "round",

@@ -17,22 +17,22 @@ var SvgComponent = function SvgComponent(props) {
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 6V17",
-    stroke: props.color || "#000",
-    strokeWidth: 1.5,
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M18 11L15.6444 8.25184C14.389 6.78711 13.7612 6.05475 13.0142 5.78641C12.3586 5.55089 11.6414 5.55089 10.9858 5.78641C10.2388 6.05475 9.61105 6.78711 8.35557 8.25184L6 11",
-    stroke: props.color || "#000",
-    strokeWidth: 1.5,
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
-  }), /*#__PURE__*/React.createElement("path", {
     d: "M3 15V15.2C3 16.8802 3 17.7202 3.32698 18.362C3.6146 18.9265 4.07354 19.3854 4.63803 19.673C5.27976 20 6.11984 20 7.8 20H16.2C17.8802 20 18.7202 20 19.362 19.673C19.9265 19.3854 20.3854 18.9265 20.673 18.362C21 17.7202 21 16.8802 21 15.2V15",
     stroke: props.color || "#000",
     strokeWidth: 1.5,
     strokeLinecap: "round"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M12 5V17",
+    stroke: props.color || "#000",
+    strokeWidth: 1.5,
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M18 10L15.6444 7.25184C14.389 5.78711 13.7612 5.05475 13.0142 4.78641C12.3586 4.55089 11.6414 4.55089 10.9858 4.78641C10.2388 5.05475 9.61105 5.78711 8.35557 7.25184L6 10",
+    stroke: props.color || "#000",
+    strokeWidth: 1.5,
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
   }));
 };
 var _default = SvgComponent;
