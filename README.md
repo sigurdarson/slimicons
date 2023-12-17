@@ -1,6 +1,6 @@
 # slimicons
 
-Slim icons is a free &amp; open source icon library by [Sig](https://twitter.com/GSigurdarson).
+Slim icons is a free &amp; open source icon library by [Gunnar](https://twitter.com/GSigurdarson).
 
 ## Instalation
 
