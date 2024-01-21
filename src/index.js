@@ -73,6 +73,7 @@ export { default as DocumentReport } from './DocumentReport';
 export { default as DocumentText } from './DocumentText';
 export { default as Document } from './Document';
 export { default as Download } from './Download';
+export { default as Edit } from './Edit';
 export { default as Ethereum } from './Ethereum';
 export { default as ExternalLink } from './ExternalLink';
 export { default as EyeBlink } from './EyeBlink';
