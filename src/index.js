@@ -151,6 +151,7 @@ export { default as PlusSmall } from './PlusSmall';
 export { default as Plus } from './Plus';
 export { default as PowerButton } from './PowerButton';
 export { default as QrCode } from './QrCode';
+export { default as Radio } from './Radio';
 export { default as Rows } from './Rows';
 export { default as Rss } from './Rss';
 export { default as Search } from './Search';
