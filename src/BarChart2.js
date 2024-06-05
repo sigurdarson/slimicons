@@ -17,19 +17,12 @@ var SvgComponent = function SvgComponent(props) {
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M17 20V10",
+    d: "M3 3V16.2C3 17.8802 3 18.7202 3.32698 19.362C3.6146 19.9265 4.07354 20.3854 4.63803 20.673C5.27976 21 6.11984 21 7.8 21H21",
     stroke: props.color || "#000",
     strokeWidth: 1.5,
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
+    strokeLinecap: "round"
   }), /*#__PURE__*/React.createElement("path", {
-    d: "M12 20V4",
-    stroke: props.color || "#000",
-    strokeWidth: 1.5,
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M7 20V16",
+    d: "M16 16V10.4M12 16V8M8 16V12.8",
     stroke: props.color || "#000",
     strokeWidth: 1.5,
     strokeLinecap: "round",

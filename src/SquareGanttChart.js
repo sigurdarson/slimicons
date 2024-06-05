@@ -16,13 +16,16 @@ var SvgComponent = function SvgComponent(props) {
     viewBox: "0 0 24 24",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 3V16.2C3 17.8802 3 18.7202 3.32698 19.362C3.6146 19.9265 4.07354 20.3854 4.63803 20.673C5.27976 21 6.11984 21 7.8 21H21",
+  }, props), /*#__PURE__*/React.createElement("rect", {
+    x: 3,
+    y: 3,
+    width: 18,
+    height: 18,
+    rx: 3,
     stroke: props.color || "#000",
-    strokeWidth: 1.5,
-    strokeLinecap: "round"
+    strokeWidth: 1.5
   }), /*#__PURE__*/React.createElement("path", {
-    d: "M12 16V10.4M16 16V8M8 16V12.8",
+    d: "M11.2 16H16M8 12H14.4M9.6 8H16",
     stroke: props.color || "#000",
     strokeWidth: 1.5,
     strokeLinecap: "round",
